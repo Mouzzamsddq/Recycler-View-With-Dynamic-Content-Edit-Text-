@@ -34,3 +34,10 @@ When a user inputs text in an EditText and scrolls, the text may appear in other
 1. **Clone the repo:**
    ```bash
    git clone https://github.com/Mouzzamsddq/Recycler-View-With-Dynamic-Content-Edit-Text-.git
+
+## 💻 Technologies Used
+1. **RecyclerView**: For list rendering and dynamic data handling.
+   
+2. **Kotlin/Java**: Core language for development.
+
+3. **ConstraintLayout**: For flexible and responsive UI design.
