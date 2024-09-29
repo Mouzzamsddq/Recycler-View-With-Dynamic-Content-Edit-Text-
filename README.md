@@ -2,7 +2,6 @@
 
 Welcome to **Dynamic Content in RecyclerView**! In this project, I've explored and demonstrated how to handle dynamic content such as **EditTexts** in a `RecyclerView`, particularly focusing on how RecyclerView manages **view recycling**, how to preserve **state** during scrolling, and best practices for dealing with dynamic user input.
 
-![RecyclerView GIF](https://user-images.githubusercontent.com/xxxxx/RecyclerViewDemo.gif) <!-- You can add a real gif here to make it more engaging -->
 
 ## ✨ Features
 - **Multiple EditTexts in RecyclerView**: Each list item contains an EditText where users can input data.
@@ -34,4 +33,4 @@ When a user inputs text in an EditText and scrolls, the text may appear in other
 ## 🔧 Setup & Installation
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/your-username/dynamic-content-recyclerview.git
+   git clone https://github.com/Mouzzamsddq/Recycler-View-With-Dynamic-Content-Edit-Text-.git
