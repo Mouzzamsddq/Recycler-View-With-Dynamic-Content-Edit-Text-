@@ -57,7 +57,20 @@ class DynamicContentAdapter(
            binding.apply {
                labelTv.text = randomInput.label
                etRandom.setText(randomInput.enteredInput)
+
+
+               /**
+                * We need to remove any existing text watcher if we have
+                * to make previous object available for garbage collector
+                */
                etRandom.removeTextChangedListener(textWatcher)
+
+               /**
+                * We will use text watcher to get the data which user entered
+                * and save all the data in the particular object so when view is
+                * recycled, all the data will update. We can do the same thing for
+                * other input field like check boxes, radio buttons.
+                */
                etRandom.addTextChangedListener(object :TextWatcher {
                    override fun beforeTextChanged(
                        s: CharSequence?,
