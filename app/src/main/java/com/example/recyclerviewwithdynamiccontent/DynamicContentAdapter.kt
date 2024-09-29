@@ -1,7 +1,6 @@
 package com.example.recyclerviewwithdynamiccontent
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -27,9 +26,19 @@ class DynamicContentAdapter(
         }
     }
 
-    override fun getItemViewType(position: Int) = position
 
-    override fun getItemId(position: Int) = position.toLong()
+    /**
+     * This approach will fix the problem but it will defeat the purpose
+     * of the recycler view as it will not allow recycling because every
+     * time view type is unique and it will increase the memory overhead.
+     */
+    /*
+
+     override fun getItemViewType(position: Int) = position
+
+     override fun getItemId(position: Int) = position.toLong()
+
+     */
 
 
     class EditTextViewHolder(
