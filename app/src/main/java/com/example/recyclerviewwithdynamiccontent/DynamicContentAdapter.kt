@@ -1,6 +1,8 @@
 package com.example.recyclerviewwithdynamiccontent
 
 import android.content.Context
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +13,11 @@ class DynamicContentAdapter(
 ) : RecyclerView.Adapter<DynamicContentAdapter.EditTextViewHolder>() {
 
 
-    private var dynamicDataSet = emptyList<String>()
+    private var dynamicDataSet = emptyList<RandomInput>()
+
+    init {
+        setHasStableIds(true)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EditTextViewHolder {
         val binding = ViewHolderEditTextBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -41,18 +47,52 @@ class DynamicContentAdapter(
      */
 
 
-    class EditTextViewHolder(
+    inner class EditTextViewHolder(
         private val binding: ViewHolderEditTextBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(text: String) {
-            binding.labelTv.text = text
+        private val textWatcher: TextWatcher? = null
+
+        fun bind(randomInput: RandomInput) {
+           binding.apply {
+               labelTv.text = randomInput.label
+               etRandom.setText(randomInput.enteredInput)
+               etRandom.removeTextChangedListener(textWatcher)
+               etRandom.addTextChangedListener(object :TextWatcher {
+                   override fun beforeTextChanged(
+                       s: CharSequence?,
+                       start: Int,
+                       count: Int,
+                       after: Int
+                   ) {
+
+                   }
+
+                   override fun onTextChanged(
+                       s: CharSequence?,
+                       start: Int,
+                       before: Int,
+                       count: Int
+                   ) {
+
+                   }
+
+                   override fun afterTextChanged(s: Editable?) {
+                       dynamicDataSet[adapterPosition].enteredInput = s.toString()
+                   }
+
+               })
+           }
         }
     }
 
-    fun setData(data: List<String>) {
+    fun setData(data: List<RandomInput>) {
         this.dynamicDataSet = data
         notifyDataSetChanged()
+    }
+
+    override fun getItemId(position: Int): Long {
+        return dynamicDataSet[position].uniqueId
     }
 
 }

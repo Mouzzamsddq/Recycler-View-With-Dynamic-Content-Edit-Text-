@@ -17,7 +17,7 @@
         android:padding="8dp" />
 
     <EditText
-        android:id="@+id/edit_text_item"
+        android:id="@+id/et_random"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Enter text"

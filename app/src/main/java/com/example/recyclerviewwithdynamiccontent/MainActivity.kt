@@ -1,7 +1,6 @@
 package com.example.recyclerviewwithdynamiccontent
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,7 @@ import com.example.recyclerviewwithdynamiccontent.databinding.ActivityMainBindin
 class MainActivity : AppCompatActivity() {
 
     private var binding: ActivityMainBinding? = null
-    private val dynamicContentList = mutableListOf<String>()
+    private val dynamicContentList = mutableListOf<RandomInput>()
     private val dynamicContentAdapter: DynamicContentAdapter by lazy {
         DynamicContentAdapter(this@MainActivity)
     }
@@ -41,24 +40,23 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initDynamicContent() {
-        dynamicContentList.add("Enter first name")
-        dynamicContentList.add("Enter last name")
-        dynamicContentList.add("Enter age")
-        dynamicContentList.add("Enter address")
-        dynamicContentList.add("Enter pincode")
-        dynamicContentList.add("Enter Mother Name")
-        dynamicContentList.add("Enter Father Name")
-        dynamicContentList.add("Enter School Name")
-        dynamicContentList.add("Enter City Name")
-        dynamicContentList.add("Enter State Name")
-        dynamicContentList.add("Enter Country Name")
-        dynamicContentList.add("Enter Friend Name")
-        dynamicContentList.add("Enter Company Name")
-        dynamicContentList.add("Enter College Name")
-        dynamicContentList.add("Enter College City Name")
-        dynamicContentList.add("Enter Laptop Name")
-        dynamicContentList.add("Enter Mobile Name")
-        dynamicContentList.add("Enter Mouse Name")
+        dynamicContentList.add(RandomInput(1,"Enter first name", ""))
+        dynamicContentList.add(RandomInput(2,"Enter last name", ""))
+        dynamicContentList.add(RandomInput(3,"Enter age", ""))
+        dynamicContentList.add(RandomInput(4,"Enter address", ""))
+        dynamicContentList.add(RandomInput(5, "Enter pincode", ""))
+        dynamicContentList.add(RandomInput(6, "Enter Father Name", ""))
+        dynamicContentList.add(RandomInput(7, "Enter School Name", ""))
+        dynamicContentList.add(RandomInput(8,"Enter City Name", ""))
+        dynamicContentList.add(RandomInput(9,"Enter State Name", ""))
+        dynamicContentList.add(RandomInput(10,"Enter Country Name", ""))
+        dynamicContentList.add(RandomInput(11,"Enter Friend Name", ""))
+        dynamicContentList.add(RandomInput(12,"Enter Company Name", ""))
+        dynamicContentList.add(RandomInput(13,"Enter College Name", ""))
+        dynamicContentList.add(RandomInput(14,"Enter College City Name", ""))
+        dynamicContentList.add(RandomInput(15,"Enter Laptop Name", ""))
+        dynamicContentList.add(RandomInput(16,"Enter Random Name", ""))
+        dynamicContentList.add(RandomInput(17,"Enter Random 2 Name", ""))
         dynamicContentAdapter.setData(dynamicContentList)
     }
 }
